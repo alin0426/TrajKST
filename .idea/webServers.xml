@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5cba3c28-e636-4144-9ebf-4e705bc4f042" name="model-bigcity">
+        <fileTransfer accessType="SFTP" host="172.18.20.68" port="22" sshConfigId="9698d583-11d9-47d2-ac9f-d053649a5c7a" sshConfig="sxl126-cailab-02-h100@172.18.20.68:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
