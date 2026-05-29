@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Black">
-    <option name="sdkName" value="Remote Python 3.12.9 (sftp://sxl126-cailab-02-h100@172.18.20.68:22/home/sxl126-cailab-02-h100/.virtualenvs/BIGCity/bin/python)" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.12.9 (sftp://sxl126-cailab-02-h100@172.18.20.68:22/home/sxl126-cailab-02-h100/miniconda3/envs/bigcity/bin/python3)" project-jdk-type="Python SDK" />
-</project>
