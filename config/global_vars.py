@@ -29,12 +29,11 @@ kg_relation_file = os.path.join(city_root_path, f'kg_relation_{args.city}.csv') 
 kg_triple_file = os.path.join(city_root_path, f'kg_triple_{args.city}.csv')     # 三元组表
 cached_kg_nodes = os.path.join(city_root_path, f'cached_kg_node_{args.city}.pt')
 cached_kg_edges = os.path.join(city_root_path, f'cached_kg_edge_{args.city}.pt')
-cached_kge_transe = os.path.join(city_root_path, f'kge_emb', f'kge_transe_emb_{args.city}.pt')
 # 增加road_index文件
 road_index_file = os.path.join(city_root_path, f'osmid_to_index_{args.city}.csv')
 # 增加traj_text_token_ids文件
 token_cache_dir = os.path.join(save_root_path, f'cached_traj_text_tokens')
-token_cache_dir_nouser = os.path.join(save_root_path, f'cached_traj_text_tokens_nouser')
+# token_cache_dir_nouser = os.path.join(save_root_path, f'cached_traj_text_tokens_nouser')
 token_cache_dir_des = os.path.join(save_root_path, f'cached_traj_text_tokens_des')
 token_cache_dir_time = os.path.join(save_root_path, f'cached_traj_text_tokens_time')
 token_chunk_size = 16000
@@ -44,12 +43,12 @@ token_chunk_size = 16000
 
 # 增加子图节点文件
 cached_subgraph_nodes = os.path.join(save_root_path, f'subgraph_nodes.npz')
-cached_subgraph_nodes_query = os.path.join(save_root_path, f'subgraph_nodes_query.npz')
-cached_subgraph_nodes_target = os.path.join(save_root_path, f'subgraph_nodes_target.npz')
+# cached_subgraph_nodes_query = os.path.join(save_root_path, f'subgraph_nodes_query.npz')
+# cached_subgraph_nodes_target = os.path.join(save_root_path, f'subgraph_nodes_target.npz')
 # 增加traj_kg_path文件
 cached_traj_kg_path = os.path.join(save_root_path, f'cached_traj_kg_path.pth')
-cached_traj_kg_path_query = os.path.join(save_root_path, f'cached_traj_kg_path_query.pth')
-cached_traj_kg_path_target = os.path.join(save_root_path, f'cached_traj_kg_path_target.pth')
+# cached_traj_kg_path_query = os.path.join(save_root_path, f'cached_traj_kg_path_query.pth')
+# cached_traj_kg_path_target = os.path.join(save_root_path, f'cached_traj_kg_path_target.pth')
 
 
 dataset_meta_file = os.path.join(city_root_path, f'cached_meta_{args.city}.json')

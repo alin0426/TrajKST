@@ -10,7 +10,7 @@ from peft import (
 
 from config.args_config import args
 from data_provider.file_loader import file_loader
-from .layers import MLP, EmptyHead, TokenMMOE
+from .layers import MLP, EmptyHead
 
 
 

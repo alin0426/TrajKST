@@ -62,7 +62,7 @@ def traj_to_text_traj(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
     return batch_traj_text
 
 
-def traj_to_text_class(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
+def traj_to_text_time(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
     # print("开始轨迹文本化")
     # 遍历每条轨迹
     batch_traj_text = []  # batch中所有轨迹的text
@@ -78,8 +78,8 @@ def traj_to_text_class(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
 
         # 遍历每条轨迹的每个轨迹点
         sentence = []
-        #head = '[User{}]'.format(taxi_id)
-        head = '[MASK]'
+        head = '[User{}]'.format(taxi_id)
+        #head = '[MASK]'
         i = 0  # 第一个轨迹点
         prev_time = None
         # for road_id, time_id, dis_gap, time_gap in zip(road_id_list, time_id_list, dis_list, time_list):
@@ -87,7 +87,8 @@ def traj_to_text_class(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
             time_gap = 0
             word_road = '[Road{}]'.format(road_id)
             # 将时间戳转换为真实时间
-            real_time = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time_id))
+            #real_time = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time_id))
+            real_time = '[MASK]'
             # 将每个轨迹点信息和taxi_id构成一句文本
             if i == 0:  # 第一个轨迹点
                 # word_dis = ''  # 第一个dis设为0
@@ -96,7 +97,8 @@ def traj_to_text_class(batch_road_id, batch_time_id, batch_taxi_id, batch_dis):
                 # word_dis = 'and a distance of {} meters'.format(dis_gap)
                 s = '[CHE] At the end' + ' ' + head + ' ' + 'arrive at' + ' ' + word_road + ' at ' + real_time + ';'
             else:
-                time_gap = int(time_id - prev_time)
+                #time_gap = int(time_id - prev_time)
+                time_gap = 0
                 word_dis = 'and a distance of {} meters'.format(dis_gap)
                 s = '[STR] After a time of {} seconds'.format(
                     time_gap) + ' ' + word_dis + ' ' + head + ' ' + 'pass through' + ' ' + word_road + ' at ' + real_time + ';'
@@ -137,7 +139,7 @@ def build_and_cache_traj_tokens(
 
     print(f"轨迹条数：{num_traj}")
 
-    is_class_pred = (task_name == 'classify')
+    is_time_pred = (task_name == 'tte')
 
 
     # 每次处理5000条轨迹
@@ -145,8 +147,8 @@ def build_and_cache_traj_tokens(
         end = min(start + TRAJ_CHUNK, num_traj)   # 不满5000条轨迹的最后一个循环
 
         # ===== 1. 文本构造（chunk 内）=====
-        if is_class_pred:
-            traj_text_list = traj_to_text_class(
+        if is_time_pred:
+            traj_text_list = traj_to_text_time(
                 traj_road_index_lists[start:end],
                 traj_time_stamp_lists[start:end],
                 traj_taxi_id[start:end],
@@ -180,7 +182,7 @@ def build_and_cache_traj_tokens(
 
         # concat & reshape
         token_ids = torch.cat(token_ids_chunks, dim=0).int()   # 32位
-        token_ids = token_ids.view(end - start, 32, MAX_LEN)  # [16000, 64, 45]
+        token_ids = token_ids.view(end - start, 64, MAX_LEN)  # [16000, 64, 45]
 
         # ===== 3. 保存 =====
         save_path = os.path.join(save_dir, f"traj_tokens_{start}_{end}.pt")
