@@ -8,18 +8,24 @@ from data_provider.traj_text_ddp import build_and_cache_traj_tokens
 
 print("开始执行：cached_token_ids_test.py文件")
 
-# # 总测试集（作为候选库）
-# build_and_cache_traj_tokens(
-#     cached_pth='./dataset/porto/test_cache/cached_traj_dataset.pth',
-#     save_dir='./dataset/porto/test_cache/cached_traj_text_tokens/',
-#     task_name='traj',
-# )
+# 总测试集（作为候选库）
+build_and_cache_traj_tokens(
+    cached_pth='./dataset/porto/test_cache/cached_traj_dataset.pth',
+    save_dir='./dataset/porto/test_cache/cached_traj_text_tokens/',
+    task_name='traj',
+)
 
-# # 目的地预测测试集
-# build_and_cache_traj_tokens(
-#     cached_pth='./dataset/porto/test_cache/cached_destination_prediction_dataset.pth',
-#     save_dir='./dataset/porto/test_cache/cached_traj_text_tokens_des/',
-#     task_name='destination',
-# )
+# 目的地预测测试集
+build_and_cache_traj_tokens(
+    cached_pth='./dataset/porto/test_cache/cached_destination_prediction_dataset.pth',
+    save_dir='./dataset/porto/test_cache/cached_traj_text_tokens_des/',
+    task_name='destination',
+)
+
+build_and_cache_traj_tokens(
+    cached_pth='./dataset/porto/test_cache/cached_traj_dataset.pth',
+    save_dir='./dataset/porto/test_cache/cached_traj_text_tokens_time/',
+    task_name='tte',
+)
 
 

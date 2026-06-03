@@ -22,7 +22,7 @@ def get_args_parser():
                         help='freq for time features encoding, options:[s:secondly, t:minutely, h:hourly, d:daily, b:business days, w:weekly, m:monthly], you can also use more detailed freq like 15min or 3h')
     parser.add_argument('--checkpoint_path', type=str, default='./checkpoints/', help='location of model checkpoints')
     parser.add_argument('--log_path', type=str, default='./log/', help='location of log file') # use
-    parser.add_argument('--ckpt', type=str, default='./checkpoints/', help='location of ckpt file')
+    parser.add_argument('--ckpt', type=str, default=None, help='location of ckpt file')
 
     # inputation task
     parser.add_argument('--mask_rate', type=float, default=0.5, help='mask ratio') # use  随机掩码率

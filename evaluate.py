@@ -373,7 +373,6 @@ def evaluate(device):
                 if len(road_seq) != 0 and is_dest_pred:
 
                     mask_roads.append(result[-1])
-                    mask_roads.append(result[-2])
                 elif task_name == 'traj_recover':
                     mask_roads = mask_entity_list[b]
                 else:
