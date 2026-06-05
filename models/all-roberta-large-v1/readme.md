@@ -1,0 +1,1 @@
+https://huggingface.co/sentence-transformers/all-roberta-large-v1

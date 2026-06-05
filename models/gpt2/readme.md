@@ -1,0 +1,1 @@
+Hugging Face中下载的模型文件：https://huggingface.co/openai-community/gpt2
