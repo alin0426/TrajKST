@@ -1,7 +1,7 @@
 import argparse
 
 def get_args_parser():
-    parser = argparse.ArgumentParser(description='BigCity Training Config')
+    parser = argparse.ArgumentParser(description='Training Config')
 
     # basic config
     parser.add_argument('--task_name', type=str, required=False, default='imputation',
