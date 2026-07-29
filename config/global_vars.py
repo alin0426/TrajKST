@@ -14,15 +14,6 @@ city_root_path = os.path.join(args.dataset_path, args.city)
 save_root_path = os.path.join(city_root_path, 'test_cache' if args.test_cache else '')
 os.makedirs(save_root_path, exist_ok=True)
 
-# road_relation_file = os.path.join(city_root_path, f"roadmap_{args.city}", f"roadmap_{args.city}.rel")
-# road_relation_tensor_file = os.path.join(city_root_path, f'cached_{args.city}_relation.pth')
-#
-# road_static_file = os.path.join(city_root_path, f"roadmap_{args.city}", f"road_features_{args.city}.csv")
-# road_static_tensor_file = os.path.join(city_root_path, f'cached_{args.city}_static.pth')
-#
-# road_dynamic_file = os.path.join(city_root_path, f'{args.city}.dyna')
-# road_dynamic_tensor_file = os.path.join(city_root_path, f'cached_{args.city}_dynamic.pth')
-
 # 增加知识图谱数据文件
 kg_entity_file = os.path.join(city_root_path, f'kg_entity_{args.city}.csv')     # 实体表
 kg_relation_file = os.path.join(city_root_path, f'kg_relation_{args.city}.csv')     # 关系表
@@ -71,16 +62,4 @@ cached_time_reg_dataset = cached_files["time_reg"]
 cached_traj_recover_dataset = cached_files["traj_recover"]
 cached_des_prediction_dataset = cached_files["destination_prediction"]  # 增加目的地预测
 
-# 增加相似轨迹搜索
-# cached_traj_similar_query_dataset = os.path.join(city_root_path, f'cached_traj_similar_query_dataset.pth')
-# cached_traj_similar_target_dataset = os.path.join(city_root_path, f'cached_traj_similar_target_dataset.pth')
-# cached_traj_similar_test_dataset = os.path.join(city_root_path, f'cached_traj_similar_test_dataset.pth')
-# cached_traj_similar_negindex_dataset = os.path.join(city_root_path, f'cached_traj_similar_negindex_dataset.npy')
-#
-# cached_traj_similar_evaluate = os.path.join(city_root_path, f'cached_traj_similar_evaluate.h5')
-#
-# road_dynamic_embedding_file = os.path.join(city_root_path, "road_dyna_embedding.npy")
 
-# start_time = pd.to_datetime("2018-10-01T00:00:00Z")
-# end_time = pd.to_datetime("2018-11-30T23:30:00Z")
-# interval = 1800 # 30min的秒数
