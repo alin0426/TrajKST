@@ -8,7 +8,7 @@ In this work, we propose **TrajKST-LLM**, a method for **trajectory-oriented tas
 
 ## Framework
 
-<img src="images/framework.png" width="700">
+<img src="images/framework.svg" width="700">
 
 The original PDF version is available [here](images/framework.pdf).
 
